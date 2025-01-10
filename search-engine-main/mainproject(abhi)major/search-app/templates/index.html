@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Search</title>
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('./bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .title {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .search-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search__input {
+            width: 300px;
+            height: 50px;
+            font-size: 18px;
+            color: #504f4f;
+            background-color: #efefef;
+            border: none;
+            padding: 15px;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+        }
+
+        .search__input:focus {
+            outline: none;
+            width: 350px;
+            background-color: #f0eeee;
+        }
+
+        .search__input::-webkit-input-placeholder {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        .search__button {
+            border: none;
+            background-color: #efefef;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .search__button:focus {
+            outline: none;
+        }
+
+        .search__icon {
+            font-size: 25px;
+            color: #999;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Smart Search</div>
+    <div class="search-container">
+        <form action="/search" method="get" class="search">
+            <input type="text" name="query" class="search__input" placeholder="Search">
+            <button type="submit" class="search__button">
+                <i class="fas fa-search search__icon"></i>
+            </button>
+        </form>
+    </div>
+
+    
+</body>
+</html>

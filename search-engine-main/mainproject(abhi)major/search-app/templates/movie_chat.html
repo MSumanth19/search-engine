@@ -1,0 +1,82 @@
+<!-- movie_chat.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Movie Recommendation Chat</h2>
+    <form action="/movie_chat" method="POST">
+        <input type="text" name="movie_name" placeholder="Enter movie name" required>
+        <button type="submit">Search Movie</button>
+    </form>
+    
+    {% if movie_data %}
+        <h3>Movie Information</h3>
+        <table>
+            <tr>
+                <th>Title</th>
+                <td>{{ movie_data.title }}</td>
+            </tr>
+            <tr>
+                <th>Release Date</th>
+                <td>{{ movie_data.release_date }}</td>
+            </tr>
+            <tr>
+                <th>Rating</th>
+                <td>{{ movie_data.rating }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ movie_data.genre }}</td>
+            </tr>
+            <tr>
+                <th>Actors</th>
+                <td>
+                    <ul>
+                    {% for actor in movie_data.actors %}
+                        <li>{{ actor }}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Director</th>
+                <td>
+                    <ul>
+                    {% for director in movie_data.directors %}
+                        <li>{{ director }}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ movie_data.description }}</td>
+            </tr>
+        </table>
+    {% endif %}
+    
+</body>
+</html>

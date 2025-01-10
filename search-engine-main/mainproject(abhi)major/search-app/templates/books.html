@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Search Option</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Search detected as books-related: "{{ search_query }}"</h2>
+    <p>Choose an option below:</p>
+    <div class="button-container">
+        <!-- Normal Search button -->
+        <form action="/abhi" method="get">
+            <input type="hidden" name="query" value="{{ search_query }}">
+            <button type="submit">Normal Search</button>
+        </form>
+
+        <!-- Go to Movie Recommendation button -->
+        <form action="/ram" method="get">
+            <input type="hidden" name="book_query" value="{{ book_query }}">
+            <button type="submit">BOOKS INFORMATION</button>
+        </form>
+    </div>
+</body>
+</html>
